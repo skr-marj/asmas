@@ -1,8 +1,8 @@
 import React, { Component} from 'react';
 import { Card, CardBody,  Row, Col,} from 'reactstrap';
-import Cardthree from '../card-home/Cardthree';
+//import Cardthree from '../card-home/Cardthree';
 
-class Cardthreelist extends Component {
+/*class Cardthreelist extends Component {
     constructor(props) {
       super(props);
   
@@ -26,6 +26,20 @@ class Cardthreelist extends Component {
             </Row>
         );
     }
-}
+}*/
+
+const Cardthreelist = ({ cardtxt }) => (
+  <div>
+    <Row>
+        {cardtxt.map(ctxt => 
+          <Cardthree
+            key = {ctxt.id}
+            title = {ctxt.title}
+            description = {ctxt.descript}
+          />  
+        )}
+    </Row>
+  </div>
+);
 
 export default Cardthreelist;

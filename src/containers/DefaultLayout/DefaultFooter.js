@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Col, Row,} from 'reactstrap';
+
 
 const propTypes = {
   children: PropTypes.node,
@@ -15,8 +17,21 @@ class DefaultFooter extends Component {
 
     return (
       <React.Fragment>
-        <span><a href="https://coreui.io">CoreUI</a> &copy; 2019 creativeLabs.</span>
-        <span className="ml-auto">Powered by <a href="https://coreui.io/react">CoreUI for React</a></span>
+        {/*<span><a href="#">AS+</a> &copy; 2019 creative.</span>
+        <span className="ml-auto">Powered by <a href="#">SEKURA</a></span>*/}
+        <div className="container">
+          <Row>
+            <Col xs="12"  md="4">
+                AVISO DE PRIVACIDAD
+            </Col>
+            <Col xs="12"  md="4">
+                TERMINOS Y CONDICIONES
+            </Col>
+            <Col xs="12"  md="4">
+                PREGUNTAS FRECUENTES
+            </Col>
+          </Row>
+        </div>
       </React.Fragment>
     );
   }

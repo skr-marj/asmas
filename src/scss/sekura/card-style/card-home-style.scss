@@ -1,5 +1,5 @@
 .background-card{
-    background-image : url("https://miro.medium.com/max/1680/1*pPSIXfi71r6lgvHsjs1ngw.jpeg");
+    /*background-image : url("https://miro.medium.com/max/1680/1*pPSIXfi71r6lgvHsjs1ngw.jpeg");*/
     height: 30vh;
 }
 
@@ -12,4 +12,21 @@
 .txt-footer{
     padding: 1vh 2vh;
     margin: 1vh 2vh;
+}
+
+.background-cardpromo{
+    height: 24vw;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+}
+
+.notas-stl{
+    background:rgba(80, 233, 105, 0.9); 
+    border-radius: 1.0vh;
+    font-weight: bold;
+    font-size: 2.5vh;
+    width: 75%;
+    margin-bottom: 1vh
 }

@@ -1,40 +1,102 @@
 import React, { Component, lazy, Suspense } from 'react';
-
+import axios from 'axios';
 import { Badge, Button, ButtonDropdown, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardHeader, CardTitle, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Progress, Row, Table, } from 'reactstrap';
+import Cardthree from '../card-home/Cardthree';
+import Cardpromo from '../card-home/Cardpromo';
+import Notas from '../card-home/Notas';
+//import Cardthreelist from '../card-home/Cardthreelist';
+//import Axios from 'axios';
 
-import Cardthreelist from '../card-home/Cardthreelist';
+/*const initialdatas = [
+  { id: 1, title: 'Lo que viene 1', description: '1.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
+  { id: 2, title: 'Lo que viene 2', description: '2.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
+  { id: 3, title: 'Lo que viene 3', description: '3.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
+];
+const initipromo = [
+  { id: 1, title: 'Promocion 1', description: '1.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
+];*/
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      dropdownOpen: false,
-      radioSelected: 2,
+      initialdatas: [
+        { id: 1, title: 'Lo que viene 1', description: '1.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.', imgurl:'https://cdn-ami-drupal.heartyhosting.com/sites/muscleandfitness.com/files/flex/6_12.jpg'},
+        { id: 2, title: 'Lo que viene 2', description: '2.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.', imgurl:'https://www.izotope.com/en/blog/music-production/7-home-recording-studio-myths/_jcr_content/image.img.jpg/1547649975903.jpg'},
+        { id: 3, title: 'Lo que viene 3', description: '3.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.', imgurl:'https://www.muscleathleticsports.com/wp-content/uploads/2017/12/51875019_121070799001096_15001034878618338_n-1024x683.jpg'},
+      ],
+      initipromo: [
+        { id: 1, title: 'Promocion 1', description: '1.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.', imgurl:'https://www.fotojet.com/template-imgs/social-media-header/youtube-thumbnail/build-body-youtube-thumbnail.jpg'},
+      ],
+      initialnotes: [
+        { id:1, title: 'Nota 1', description: '1.-Deserunt Lorem duis ullamco officia ea commodo cupidatat.' },
+        { id:2, title: 'Nota 2', description: '2.-Deserunt Lorem duis ullamco officia ea commodo cupidatat.' },
+        { id:3, title: 'Nota 3', description: '3.-Deserunt Lorem duis ullamco officia ea commodo cupidatat.' },
+      ]
     };
   }
 
+  componentWillMount(){
+    axios.get('http://54.187.97.19:8082/asmas/all')
+    .then(response => {
+      console.log(response.data)
+      //this.setState({ initialdatas:response.data })
+    })
+  }
+
   render() {
+    const {cardtxt, promotxt} = this.state;
     return (
       <div className="animated fadeIn">
         <Row>
           <Col xs="12"  md="9">
-          <Cardthreelist/>
-          <Cardthreelist/>
+            <Row>
+              {
+                this.state.initialdatas.map((item,i) => { 
+                  return (<Cardthree thumbnail={item}/>);
+                })
+              }
+            </Row>
+            <Row>
+              {
+                this.state.initialdatas.map((item,i) => { 
+                  return (<Cardthree thumbnail={item}/>);
+                })
+              }
+            </Row>            
           </Col>
           <Col xs="12" md="3"> 
-            <Card className="border-primary background-card" style={{"height": "90vh"}}>
-              <CardBody>
-                <p></p>
-              </CardBody>
-              <div className="footer-card"> 
-                <div className="txt-footer">
-                  <p className="h3">TITULO0</p>
-                  Prueba Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                  aoreet dolore magna aliquam erat volutpat.
-                </div>
-              </div>              
-            </Card>
+              {
+                this.state.initipromo.map((item,i) => {
+                  return (<Cardpromo thumbnail={item}/>);
+                })
+              }
+          </Col>
+        </Row>
+        <Row>
+          {
+            this.state.initialdatas.map((item,i) => { 
+              return (<Cardthree thumbnail={item}/>);
+            })
+          }          
+        </Row>
+        <Row>
+          <Col xs="12"  md="9">
+            <Row>
+              {
+                this.state.initialdatas.map((item,i) => { 
+                  return (<Cardthree thumbnail={item}/>);
+                })
+              }
+            </Row>          
+          </Col>
+          <Col xs="12" md="3"> 
+            {
+              this.state.initialnotes.map((item,i) => {
+                return (<Notas thumbnail={item}/>);
+              })
+            }
           </Col>
         </Row>
       </div>

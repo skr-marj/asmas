@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Card, CardBody, } from 'reactstrap';
+import { Card, CardBody, CardFooter, Col, Row,} from 'reactstrap';
 
 
 class Cardthree extends Component {
@@ -7,29 +7,47 @@ class Cardthree extends Component {
     super(props);
 
     this.state = {
-      dropdownOpen: false,
-      radioSelected: 2,
+
     };
   }
 
   render() {
     return (
-      <div>
-        <Card className="border-primary background-card">
+      <Col xs="12" md="4">   
+        <Card className="border-primary background-card" style={{"background-image":"url('" + this.props.thumbnail.imgurl + "')" }}>
           <CardBody>
             <p></p>
           </CardBody>
-          <div className="footer-card"> 
+          <CardFooter className="footer-card">
+            <h3>{this.props.thumbnail.title}</h3>
+              {this.props.thumbnail.description}            
+          </CardFooter>
+          {/*<div className="footer-card"> 
             <div className="txt-footer">
-              <p className="h3">TITULO</p>
-              Prueba Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-              aoreet dolore magna aliquam erat volutpat.
+              <p className="h3">{this.props.thumbnail.title}</p>
+              {this.props.thumbnail.description}
             </div>
-          </div>              
+          </div>*/}
         </Card>          
-      </div>
+      </Col>
     )
   }
 }
+
+/*const Cardthree = ({ title, description }) => (
+  <Col xs="12" md="4">
+    <Card className="border-primary background-card">
+      <CardBody>
+        <p></p>
+      </CardBody>
+      <div className="footer-card"> 
+        <div className="txt-footer">
+          <p className="h3">{title}</p>
+          {description}
+        </div>
+      </div>              
+    </Card>          
+  </Col>
+);*/
 
 export default Cardthree;
