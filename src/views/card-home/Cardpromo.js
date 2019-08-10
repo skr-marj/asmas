@@ -5,7 +5,7 @@ class Cardpromo extends Component {
   render() {
     return (
       <div>
-        <Card className="border-primary background-cardpromo" style={{"background-image":"url('" + this.props.thumbnail.imgurl + "')" }}>
+        <Card className="border-primary background-cardpromo" style={{"backgroundImage":"url('" + this.props.thumbnail.imgurl + "')" }}>
             <CardBody>
             <p></p>
             </CardBody>

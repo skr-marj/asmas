@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Card, CardBody, CardFooter, Col, Row,} from 'reactstrap';
+import { Card, CardBody, CardFooter, Col, } from 'reactstrap';
 
 
 class Cardthree extends Component {
@@ -14,7 +14,7 @@ class Cardthree extends Component {
   render() {
     return (
       <Col xs="12" md="4">   
-        <Card className="border-primary background-card" style={{"background-image":"url('" + this.props.thumbnail.imgurl + "')" }}>
+        <Card className="border-primary background-card" style={{"backgroundImage":"url('" + this.props.thumbnail.imgurl + "')" }}>
           <CardBody>
             <p></p>
           </CardBody>

@@ -1,20 +1,9 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component, } from 'react';
 import axios from 'axios';
-import { Badge, Button, ButtonDropdown, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardHeader, CardTitle, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Progress, Row, Table, } from 'reactstrap';
+import { Col, Row, } from 'reactstrap';
 import Cardthree from '../card-home/Cardthree';
 import Cardpromo from '../card-home/Cardpromo';
 import Notas from '../card-home/Notas';
-//import Cardthreelist from '../card-home/Cardthreelist';
-//import Axios from 'axios';
-
-/*const initialdatas = [
-  { id: 1, title: 'Lo que viene 1', description: '1.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
-  { id: 2, title: 'Lo que viene 2', description: '2.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
-  { id: 3, title: 'Lo que viene 3', description: '3.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
-];
-const initipromo = [
-  { id: 1, title: 'Promocion 1', description: '1.-Culpa quis exercitation ea fugiat magna proident ipsum commodo tempor laboris elit.'},
-];*/
 
 class Dashboard extends Component {
   constructor(props) {
@@ -46,7 +35,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    const {cardtxt, promotxt} = this.state;
     return (
       <div className="animated fadeIn">
         <Row>
@@ -54,14 +42,14 @@ class Dashboard extends Component {
             <Row>
               {
                 this.state.initialdatas.map((item,i) => { 
-                  return (<Cardthree thumbnail={item}/>);
+                  return (<Cardthree key ={i}  thumbnail={item}/>);
                 })
               }
             </Row>
             <Row>
               {
                 this.state.initialdatas.map((item,i) => { 
-                  return (<Cardthree thumbnail={item}/>);
+                  return (<Cardthree key ={i} thumbnail={item}/>);
                 })
               }
             </Row>            
@@ -69,7 +57,7 @@ class Dashboard extends Component {
           <Col xs="12" md="3"> 
               {
                 this.state.initipromo.map((item,i) => {
-                  return (<Cardpromo thumbnail={item}/>);
+                  return (<Cardpromo key ={i} thumbnail={item}/>);
                 })
               }
           </Col>
@@ -77,7 +65,7 @@ class Dashboard extends Component {
         <Row>
           {
             this.state.initialdatas.map((item,i) => { 
-              return (<Cardthree thumbnail={item}/>);
+              return (<Cardthree key ={i} thumbnail={item}/>);
             })
           }          
         </Row>
@@ -86,7 +74,7 @@ class Dashboard extends Component {
             <Row>
               {
                 this.state.initialdatas.map((item,i) => { 
-                  return (<Cardthree thumbnail={item}/>);
+                  return (<Cardthree key ={i} thumbnail={item}/>);
                 })
               }
             </Row>          
@@ -94,7 +82,7 @@ class Dashboard extends Component {
           <Col xs="12" md="3"> 
             {
               this.state.initialnotes.map((item,i) => {
-                return (<Notas thumbnail={item}/>);
+                return (<Notas key ={i} thumbnail={item}/>);
               })
             }
           </Col>
